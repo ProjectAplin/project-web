@@ -1,0 +1,37 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 26/01/2019 10:34
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  
+  src:url('DancingScript-Regular.otf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+  
+  src:url('DancingScript-Regular.otf') format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+	font-family: Flaticon;
+	font-size: 20px;
+	font-style: normal;
+	margin-left: 20px;
+}
+
+.flaticon-teacher:before { content: "\f100"; }
+.flaticon-books:before { content: "\f101"; }
+.flaticon-diploma:before { content: "\f102"; }
+.flaticon-reading:before { content: "\f103"; }
+.flaticon-security:before { content: "\f104"; }
+.flaticon-education:before { content: "\f105"; }
+.flaticon-jigsaw:before { content: "\f106"; }
+.flaticon-kids:before { content: "\f107"; }
