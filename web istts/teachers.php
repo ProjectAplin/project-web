@@ -1,3 +1,17 @@
+<?php
+        include("topnavbar.php"); 
+        include("carrousel.php"); 
+        include("desc.php"); 
+        include("mission.php"); 
+        include("campus.php"); 
+        include("courses.php"); 
+        include("index.php"); 
+        include("news.php"); 
+        include("testi.php"); 
+        include("gallery.php"); 
+        include("footer.php"); 
+      ?>
+
 <section class="ftco-section bg-light">
 			<div class="container-fluid px-4">
 				<div class="row justify-content-center mb-5 pb-2">

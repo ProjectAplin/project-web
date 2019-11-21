@@ -48,7 +48,7 @@
 	        	<li class="nav-item" id="index"><a href="index.html" class="nav-link pl-0">Home</a></li>
 	        	<li class="nav-item" id="about"><a href="about.php" class="nav-link">About</a></li>
 	        	<li class="nav-item" id="courses"><a href="courses.html" class="nav-link">Courses</a></li>
-	        	<li class="nav-item" id="teacher"><a href="teacher.html" class="nav-link">Staff</a></li>
+	        	<li class="nav-item" id="teacher"><a href="teachers.php" class="nav-link">Staff</a></li>
 	        	<li class="nav-item" id="blog"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item" id="contact"><a href="contact.html" class="nav-link">Contact</a></li>
 	        </ul>
