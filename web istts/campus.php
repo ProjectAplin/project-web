@@ -1,8 +1,8 @@
 <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
     	<div class="container">
-    		<div class="row justify-content-center mb-5 pb-2 d-flex">
-    			<div class="col-md-6 align-items-stretch d-flex">
-    				<div class="img img-video d-flex align-items-center">
+    		<div class="row justify-content-left mb-5 pb-2 d-flex">
+    			<div class="col-md-3 align-items-stretch d-flex">
+    				<div class="img img-video d-flex align-items-left">
     					<div class="video justify-content-center">
 								<iframe width="600" height="450" src="https://www.youtube.com/embed/eWxnccTJuiE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 									<span class="ion-ios-play"></span>
@@ -10,7 +10,7 @@
 							</div>
     				</div>
     			</div>
-          <div class="col-md-6 heading-section heading-section-white ftco-animate pl-lg-5 pt-md-0 pt-5">
+          <div class="col-md-8 heading-section heading-section-white ftco-animate pl-lg-5 pt-md-0 pt-5">
             <h2 class="mb-4">Our Campus</h2>
             <p>ISTTS was initially known as Institut Teknisi Elektro Surabaya (ITES), founded on March 1, 1979, located on Jalan Bali 17, Surabaya, under Yayasan Perguruan Tinggi Teknik Nusantara foundation. The establishment of this institution was based on the awareness to participate in supplying the needs of higher education, especially in electrical engineering.</p>
 			<p>For the very first time the Ministry of Education and Culture implemented full accreditation system, STTS was announced as an Accredited Higher Institution (the first in Eastern Indonesia among similar private universities).</p>

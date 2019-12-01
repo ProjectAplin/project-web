@@ -4,7 +4,7 @@
 					<div class="col-md-5 order-md-last wrap-about wrap-about d-flex align-items-stretch">
 						<div class="img" style="background-image: url(images/campus.jpg); border"></div>
 					</div>
-					<div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
+					<div class="col-md-6 wrap-about py-5 pr-md-4 ftco-animate">
           	<h2 class="mb-4">Our Mission</h2>
 						<p>To provide the best education and teaching material in science, technology, and design, with some Indonesian colors therein, referring to various international standards in accordance with the situation and condition of the demand and development in social, economic, and cultural aspects of Southeast Asian community.</p>
 						<div class="row mt-5">
