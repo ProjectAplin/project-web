@@ -48,6 +48,7 @@
 	        	<li class="nav-item" id="index"><a href="index.php" class="nav-link pl-0">Home</a></li>
 	        	<li class="nav-item" id="about"><a href="about2.php" class="nav-link">About</a></li>
 	        	<li class="nav-item" id="courses"><a href="jurusan.php" class="nav-link">Courses</a></li>
+	        	<li class="nav-item" id="teacher"><a href="teacher.php" class="nav-link">Staff</a></li>
 	        	<li class="nav-item" id="teacher"><a href="teachers.php" class="nav-link">Staff</a></li>
 	        	<li class="nav-item" id="agenda"><a href="blog.php" class="nav-link">Event & Agenda</a></li>
 	          <li class="nav-item" id="contact"><a href="contact.php" class="nav-link">Student Activity</a></li>
