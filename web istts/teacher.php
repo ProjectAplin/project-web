@@ -23,36 +23,47 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-  		<?php
-			include("topnavbar.php");
-			include("title.php");
-			include("connect.php");
-			//$jurusan=mysqli_query($conn,"SELECT * from jurusan_bahasa where jurusan_bahasa_id<>2");
-			$jurusan=mysqli_query($conn,"SELECT * from jurusan_bahasa");
+	  <?php
+    include("topnavbar.php");
+		include("title.php");
+		include("connect.php");
+		$dosen=mysqli_query($conn,"SELECT * from dosen");
 	  ?>
-		<section class="ftco-section">
-			<div class="container-fluid px-4">				
+	  <div class="munculModal"></div>
+    <section class="ftco-section bg-light" style="margin-left:12%">
+			<div class="container-fluid px-4">
 				<div class="row">
 					<?php
-						foreach ($jurusan as $key => $value) {
+						foreach ($dosen as $key => $value) {
 							echo "
-							<div class='col-md-3 course ftco-animate'>
-								<div class='img' style='background-image: url($value[jurusan_gambar]);'></div>
-								<div class='text pt-4'>
-									
-									<h3><a href='#'>$value[jurusan_nama]</a></h3>
-									<p>$value[jurusan_deskripsi2]</p>
-									<p><a href='detail.php?jurusan=$value[jurusan_id]' class='btn btn-primary'>See more</a></p>
+							<div class='col-md-6 col-lg-3 ftco-animate' onclick='muncul($value[dosen_id])'>
+								<div class='staff'>
+									<div class='img-wrap d-flex align-items-stretch'>
+										<div class='img align-self-stretch' style='background-image: url($value[dosen_gambar]);'></div>
+									</div>
+									<div class='text pt-3 text-center'>
+										<h3>$value[dosen_nama]</h3>
+										<span class='position mb-2'>$value[dosen_jabatan]</span>
+										<div class='faded'>
+											<p>$value[dosen_email]</p>
+											<ul class='ftco-social text-center'>
+												<li class='ftco-animate'><a href='#'><span class='icon-twitter'></span></a></li>
+												<li class='ftco-animate'><a href='#'><span class='icon-facebook'></span></a></li>
+												<li class='ftco-animate'><a href='#'><span class='icon-google-plus'></span></a></li>
+												<li class='ftco-animate'><a href='#'><span class='icon-instagram'></span></a></li>
+											</ul>
+										</div>
+									</div>
 								</div>
-							</div>
-							";
+							</div>";
 						}
 					?>
-					
 				</div>
 			</div>
-		</section>
-		<footer class="ftco-footer ftco-bg-dark ftco-section">
+		</div>
+	</section>
+	
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-6 col-lg-3">
@@ -160,10 +171,23 @@
   <script src="js/main.js"></script>
   <script>
     $(document).ready(function () {
-      $("#courses").addClass("active");
-      $("#title").html("Our Courses");
-      $("#title2").html("Courses");
+      $("#teacher").addClass("active");
+      $("#title").html("Certified Teacher");
+      $("#title2").html("Teacher");
     });
+	function muncul(id_dosen){
+		$.ajax({
+			method: "post",
+			url: "teacher2.php",
+			data: {
+				dosen_id:id_dosen
+			},
+			success: function (data) {
+				$(".munculModal").html(data);
+				$("#exampleModal").modal("show");
+			}
+		});
+	}
   </script>
   </body>
 </html>

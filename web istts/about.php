@@ -31,11 +31,20 @@
 		<section class="ftco-section ftco-no-pt ftc-no-pb">
 			<div class="container">
 				<div class="row d-flex">
-					<div class="col-md-5 order-md-last wrap-about wrap-about d-flex align-items-stretch">
-						<div class="img" style="background-image: url(images/about.jpg); border"></div>
+					<!-- <div class="col-md-5 order-md-last wrap-about wrap-about d-flex align-items-stretch"> -->
+						<!-- <div class="img" style="background-image: url(images/about.jpg); border"></div> -->
+            <div class="col-md-5 wrap-about py-5 pr-md-4 ftco-animate">
+            <h2 class="mb-4">Vision</h2>
+            <p>In year 2022, iSTTS shall be a higher institution in science, technology, and design which can compete at Southeast Asia level, emphasizing quality, innovation, and Indonesian values.</p>
+            <h2 class="mb-4">Mission</h2>
+            <ul>
+              <li>Memberikan materi pendidikan dan pengajaran terbaik di bidang sains, teknologi, dan desain, dengan beberapa warna keindonesiaan di dalamnya, mengacu pada berbagai standar internasional, disesuaikan dengan situasi dan kondisi kebutuhan dan perkembangan sosial, ekonomi, dan budaya masyarakat Asia Tenggara.</li>
+              <li>Melakukan penelitian berstandar internasional di bidang sains, teknologi, dan desain, sesuai kebutuhan dan perkembangan sosial, ekonomi, dan budaya masyarakat Asia Tenggara, menggunakan keindonesiaan sebagai bagian dari elemen penelitian.</li>
+              <li>Menyediakan berbagai solusi inovatif dan unggulan berbasis sains, teknologi, dan desain bagi berbagai masalah sosial, ekonomi, dan budaya, mengacu pada berbagai standar internasional, khususnya dalam menghadapi pasar masyarakat ekonomi ASEAN (AEC)</li>
+            </ul>
 					</div>
-					<div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
-          	<h2 class="mb-4">ISTTS Established Since 1979</h2>
+					<div class="col-md-5 wrap-about py-5 pr-md-4 ftco-animate">
+          	<h2 class="mb-4">Established Since 1979</h2>
             <p>ISTTS was initially known as Institut Teknisi Elektro Surabaya (ITES), founded on March 1, 1979, located on Jalan Bali 17, Surabaya, under Yayasan Perguruan Tinggi Teknik Nusantara foundation. The establishment of this institution was based on the awareness to participate in supplying the needs of higher education, especially in electrical engineering.</p>
             <p>For the very first time the Ministry of Education and Culture implemented full accreditation system, STTS was announced as an Accredited Higher Institution (the first in Eastern Indonesia among similar private universities).</p>
             <p>Having recognized as the best performing Sekolah Tinggi in East Java, STTS had officially received an honor to become an Institute.
@@ -45,9 +54,13 @@
 				</div>
 			</div>
 		</section>
-		
-
-		<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+		<?php
+      include("campus.php");
+      include("testi.php");
+      include("gallery.php");
+      include("footer.php");
+    ?>
+		<!-- <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-2 d-flex">
     			<div class="col-md-6 align-items-stretch d-flex">
@@ -108,9 +121,9 @@
           </div>
         </div>
     	</div>
-    </section>
+    </section> -->
 
-    <section class="ftco-section testimony-section">
+    <!-- <section class="ftco-section testimony-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
           <div class="col-md-8 text-center heading-section ftco-animate">
@@ -195,10 +208,10 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
 
-		<section class="ftco-gallery">
+		<!-- <section class="ftco-gallery">
     	<div class="container-wrap">
     		<div class="row no-gutters">
 					<div class="col-md-3 ftco-animate">
@@ -318,7 +331,7 @@
         </div>
       </div>
     </footer>
-    
+     -->
   
 
   <!-- loader -->
