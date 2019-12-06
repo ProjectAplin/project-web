@@ -1,4 +1,4 @@
-	  <div class="bg-top navbar-light">
+	  <div class="bg-top navbar-light "style='background-color:white;'>
     	<div class="container">
     		<div class="row no-gutters d-flex align-items-center align-items-stretch">
     			<div class="col-md-4 d-flex align-items-center py-4">
@@ -32,8 +32,8 @@
 		    </div>
 		  </div>
     </div>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container d-flex align-items-center px-4">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" style='background-color:white;' id="ftco-navbar">
+	    <div class="container d-flex align-items-center px-4" >
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -45,12 +45,12 @@
         </form>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav mr-auto">
-	        	<li class="nav-item" id="index"><a href="index.html" class="nav-link pl-0">Home</a></li>
-	        	<li class="nav-item" id="about"><a href="about.php" class="nav-link">About</a></li>
-	        	<li class="nav-item" id="courses"><a href="courses.html" class="nav-link">Courses</a></li>
-	        	<li class="nav-item" id="teacher"><a href="teacher.html" class="nav-link">Staff</a></li>
-	        	<li class="nav-item" id="blog"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item" id="contact"><a href="contact.html" class="nav-link">Contact</a></li>
+	        	<li class="nav-item" id="index"><a href="index.php" class="nav-link pl-0">Home</a></li>
+	        	<li class="nav-item" id="about"><a href="about2.php" class="nav-link">About</a></li>
+	        	<li class="nav-item" id="courses"><a href="jurusan.php" class="nav-link">Courses</a></li>
+	        	<li class="nav-item" id="teacher"><a href="teachers.php" class="nav-link">Staff</a></li>
+	        	<li class="nav-item" id="agenda"><a href="blog.php" class="nav-link">Event & Agenda</a></li>
+	          <li class="nav-item" id="contact"><a href="contact.php" class="nav-link">Student Activity</a></li>
 	        </ul>
 	      </div>
 	    </div>
