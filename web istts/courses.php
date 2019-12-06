@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <title>Fox University - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,15 +24,46 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+  <style>
+  
+  .cobak li a:hover{
+/*  style="background-color:#943434;margin-top:20px;"*/ 
+    border-top:8px solid #fff;
+    color:#fff;
+    background-color:#943434;
+    cursor: pointer;
+  }
+  </style>
   		<?php
 			include("topnavbar.php");
 			include("title.php");
 			include("connect.php");
 			//$jurusan=mysqli_query($conn,"SELECT * from jurusan_bahasa where jurusan_bahasa_id<>2");
-			$jurusan=mysqli_query($conn,"SELECT * from jurusan_bahasa");
+      $jurusan=mysqli_query($conn,"SELECT * from jurusan_bahasa");
+      //sertifikasi.php?jenis=sertifikasi&id=8
 	  ?>
-		<section class="ftco-section">
-			<div class="container-fluid px-4">				
+    <div class="cobak">
+      <h4 style="font-weight:300;">Diploma 3</h4>
+        <ul class="list-unstyled text-left" style="font-family:'Roboto';font-weight:400;margin-top:-5px;">
+          <li><a href="detail.php?jurusan=01">D3 Sistem Informasi</a></li>
+          
+         </ul>
+      <h4 style="font-weight:300;margin-top:20px;">Strata 1</h4>
+        <ul class="list-unstyled text-left" style="font-family:'Roboto';font-weight:400;margin-top:-5px;">
+          <li><a href="detail.php?jurusan=11">Strata-1 Informatika</a></li><li><a href="detail.php?jurusan=31">Strata-1 Informatika profesional (kelas malam)</a></li><li><a href="detail.php?jurusan=18">Strata-1 Sistem Informasi Bisnis</a></li><li><a href="detail.php?jurusan=12">Strata-1 Teknik Industri</a></li><li><a href="detail.php?jurusan=10">Strata-1 Teknik Elektro</a></li><li><a href="detail.php?jurusan=17">Strata-1 Desain Komunikasi Visual</a></li><li><a href="detail.php?jurusan=14">Strata-1 Desain Produk</a></li>		    <!--<li><a href="akademik.php?jenis=jurusan&id=14">Strata-1 Desain Produk</a></li>-->
+        </ul>
+      <h4 style="font-weight:300;margin-top:20px;">Strata 2</h4>
+        <ul class="list-unstyled text-left" style="font-family:'Roboto';font-weight:400;margin-top:-5px;">
+          <li><a href="detail.php?jurusan=21">S2 Teknologi Informasi</a></li>
+        </ul>
+       <h4 style="font-weight:300;margin-top:20px;">Program Internasional</h4>
+        <ul class="list-unstyled text-left" style="font-family:'Roboto';font-weight:400;margin-top:-5px;">
+          <li><a href="detail.php?jurusan=02">Bachelor of Information Technology</a></li>
+        </ul>
+    </div>
+     
+		<section class="ftco-section"  style="margin-left:25%";>
+			<div class="container-fluid px-4"  style="margin-top:-50%";>				
 				<div class="row">
 					<?php
 						foreach ($jurusan as $key => $value) {
