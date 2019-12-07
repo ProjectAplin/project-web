@@ -41,8 +41,8 @@
         include("desc.php"); 
         include("mission.php"); 
         include("campus.php"); 
-        include("courses.php"); 
-        include("teachers.php"); 
+        // include("courses.php"); 
+        // include("teachers.php"); 
         include("news.php"); 
         include("testi.php"); 
         include("gallery.php"); 
