@@ -1,69 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <title>Fox University - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-    
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/ionicons.min.css">
-    
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-	  <?php
-    include("topnavbar.php");
-		include("title.php");
-		include("connect.php");
-		$dosen=mysqli_query($conn,"SELECT * from dosen");
+  <style>
+ 
+  </style>
+  		<?php
+			include("topnavbar.php");
+			include("title.php");
+            include("connect.php");
+            $kata=$_GET['kata'];
+            $agenda=mysqli_query($conn,"SELECT * from agenda_bahasa where agenda_judul like '%$kata%' or agenda_deskripsi like '%$kata%' order by agenda_id desc limit 9");
+            $dosen=mysqli_query($conn,"SELECT * from dosen where dosen_nama like '%$kata%' or dosen_email like '%$kata%' order by dosen_id desc limit 9");
+
+    
 	  ?>
-	  <div class="munculModal"></div>
-    <section class="ftco-section bg-light" style="margin-left:12%">
-			<div class="container-fluid px-4">
+
+
+
+
+		<section class="ftco-section"  >
+			<div class="container-fluid px-4" >				
 				<div class="row">
-					<?php
-						foreach ($dosen as $key => $value) {
-							echo "
-							<div class='col-md-6 col-lg-3 ftco-animate' onclick='muncul($value[dosen_id])'>
-								<div class='staff'>
-									<div class='img-wrap d-flex align-items-stretch'>
-										<div class='img align-self-stretch' style='background-image: url($value[dosen_gambar]);'></div>
-									</div>
-									<div class='text pt-3 text-center'>
-										<h3>$value[dosen_nama]</h3>
-										<span class='position mb-2'>$value[dosen_jabatan]</span>
-										<div class='faded'>
-											<p>$value[dosen_email]</p>
-											<ul class='ftco-social text-center'>
-												<li class='ftco-animate'><a href='#'><span class='icon-twitter'></span></a></li>
-												<li class='ftco-animate'><a href='#'><span class='icon-facebook'></span></a></li>
-												<li class='ftco-animate'><a href='#'><span class='icon-google-plus'></span></a></li>
-												<li class='ftco-animate'><a href='#'><span class='icon-instagram'></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>";
-						}
-					?>
+                    <?php
+                        foreach ($agenda as $key => $value) {
+                            $desc=substr($value["agenda_deskripsi"],0,50);
+                                echo"
+                                <div class='col-md-3 course ftco-animate'>
+                                    <div class='img' style='background-image: url(images/amelia.jpg);'></div>
+                                    <div class='text pt-4'>
+                                        <h3><a href='#'>$value[agenda_judul]</a></h3>
+                                        <p>kucing emang</p>
+                                        <p><a href='detail.php?jurusan=$value[agenda_id]' class='btn btn-primary'>See more</a></p>
+                                    </div>
+                                </div>	
+                                ";
+                        }
+                    ?>
+                   		
 				</div>
 			</div>
-		</div>
-	</section>
-	
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+		</section>
+        
+		<footer class="ftco-footer ftco-bg-dark ftco-section" style="clear:both">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-6 col-lg-3">
@@ -170,24 +165,11 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script>
-    $(document).ready(function () {
-      $("#teacher").addClass("active");
-      $("#title").html("Certified Teacher");
-      $("#title2").html("Teacher");
-    });
-	function muncul(id_dosen){
-		$.ajax({
-			method: "post",
-			url: "teacher2.php",
-			data: {
-				dosen_id:id_dosen
-			},
-			success: function (data) {
-				$(".munculModal").html(data);
-				$("#exampleModal").modal("show");
-			}
-		});
-	}
+    // $(document).ready(function () {
+    //   $("#courses").addClass("active");
+    //   $("#title").html("Our Courses");
+    //   $("#title2").html("Courses");
+    // });
   </script>
   </body>
 </html>

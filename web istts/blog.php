@@ -1,7 +1,3 @@
-<?php
-  session_start();
-  require("connect.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,14 +21,11 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-
   </head>
-  <body >
+  <body>
     <?php
       include("topnavbar.php");
       include("title.php");
-      include("kalender.php");
-      $k = new Calendar();
     ?>
 
     <div class="row d-flex">
@@ -290,8 +283,8 @@
   <script>
     $(document).ready(function () {
       $("#agenda").addClass("active");
-      $("#title").html("Event & Agenda");
-      $("#title2").html("Event & Agenda");
+      $("#title").html("Agenda");
+      $("#title2").html("Agenda");
     });
   </script> 
   </body>

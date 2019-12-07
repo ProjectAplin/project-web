@@ -198,8 +198,8 @@
   <script>
     $(document).ready(function () {
       $("#contact").addClass("active");
-      $("#title").html("Student Activity");
-      $("#title2").html("Student Activity");
+      $("#title").html("Contact Us");
+      $("#title2").html("Contact");
     });
   </script>  
     

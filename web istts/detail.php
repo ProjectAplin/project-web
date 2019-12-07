@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Fox University - Free Bootstrap 4 Template by Colorlib</title>
+<head>
+<title>Fox University - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -21,49 +21,113 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-	  <?php
+ 
+</head>
+<body>
+<style>
+    
+    .cobak li a:hover{
+        border-top:8px solid #fff;
+        color:#fff;
+        background-color:#943434;
+        cursor: pointer;
+    }
+    .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+        border: 1px solid #ddd;
+    }
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: top; /*tulisan masa studi dan 1982 ke atas*/
+        border-top: 1px solid #ddd; /*border atas tabel */
+    }
+    table {
+        border-spacing: 0;
+        border-collapse: collapse; /*antara 2 tabel lebih dekat*/ 
+    }
+    .gambar2{
+        margin-top:20px;
+        margin-left:100px;
+    }
+    .kotak1{
+        clear:both;
+        color:black;
+        background-color:white;
+        border:1px solid black;
+        width:150px;
+        height:50px;
+        margin-top:10px;
+        margin-left:600px; 
+        text-align:center;
+    }
+    .kotak1:hover{
+        background-color:#f2f2f2;
+    }
+    .kotak2{
+        color:black;
+        background-color:white;
+        border:1px solid black;
+        width:150px;
+        height:50px;
+         margin-left:754.5px;
+        margin-top:-52px;
+        text-align:center;
+    }
+   
+    .kotak2:hover{
+        background-color:#f2f2f2;
+    }
+
+    .detailaktif{
+      background-color:maroon;
+    }
+    .detailaktif:hover{
+      background-color:maroon;
+    }
+    
+</style>
+
+<?php
+    include("connect.php");
     include("topnavbar.php");
-		include("title.php");
-		include("connect.php");
-		$dosen=mysqli_query($conn,"SELECT * from dosen");
-	  ?>
-	  <div class="munculModal"></div>
-    <section class="ftco-section bg-light" style="margin-left:12%">
-			<div class="container-fluid px-4">
-				<div class="row">
-					<?php
-						foreach ($dosen as $key => $value) {
-							echo "
-							<div class='col-md-6 col-lg-3 ftco-animate' onclick='muncul($value[dosen_id])'>
-								<div class='staff'>
-									<div class='img-wrap d-flex align-items-stretch'>
-										<div class='img align-self-stretch' style='background-image: url($value[dosen_gambar]);'></div>
-									</div>
-									<div class='text pt-3 text-center'>
-										<h3>$value[dosen_nama]</h3>
-										<span class='position mb-2'>$value[dosen_jabatan]</span>
-										<div class='faded'>
-											<p>$value[dosen_email]</p>
-											<ul class='ftco-social text-center'>
-												<li class='ftco-animate'><a href='#'><span class='icon-twitter'></span></a></li>
-												<li class='ftco-animate'><a href='#'><span class='icon-facebook'></span></a></li>
-												<li class='ftco-animate'><a href='#'><span class='icon-google-plus'></span></a></li>
-												<li class='ftco-animate'><a href='#'><span class='icon-instagram'></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>";
-						}
-					?>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+    include("title.php");
+    $id=$_GET["jurusan"];
+    $jurusan=mysqli_fetch_assoc(mysqli_query($conn,"SELECT * from jurusan_bahasa where jurusan_id=$id"));
+    ?>
+    <div class="cobak" style="float:left">
+        <h4 style="font-weight:300;">Diploma 3</h4>
+            <ul class="list-unstyled text-left" style="font-family:'Roboto';font-weight:400;margin-top:-5px;">
+            <li><a href="detail.php?jurusan=01">D3 Sistem Informasi</a></li>          
+            </ul>
+        <h4 style="font-weight:300;margin-top:20px;">Strata 1</h4>
+            <ul class="list-unstyled text-left" style="font-family:'Roboto';font-weight:400;margin-top:-5px;">
+            <li><a href="detail.php?jurusan=11">Strata-1 Informatika</a></li><li><a href="detail.php?jurusan=31">Strata-1 Informatika profesional (kelas malam)</a></li><li><a href="detail.php?jurusan=18">Strata-1 Sistem Informasi Bisnis</a></li><li><a href="detail.php?jurusan=12">Strata-1 Teknik Industri</a></li><li><a href="detail.php?jurusan=10">Strata-1 Teknik Elektro</a></li><li><a href="detail.php?jurusan=17">Strata-1 Desain Komunikasi Visual</a></li><li><a href="detail.php?jurusan=14">Strata-1 Desain Produk</a></li>		    <!--<li><a href="akademik.php?jenis=jurusan&id=14">Strata-1 Desain Produk</a></li>-->
+            </ul>
+        <h4 style="font-weight:300;margin-top:20px;">Strata 2</h4>
+            <ul class="list-unstyled text-left" style="font-family:'Roboto';font-weight:400;margin-top:-5px;">
+            <li><a href="detail.php?jurusan=21">S2 Teknologi Informasi</a></li>
+            </ul>
+        <h4 style="font-weight:300;margin-top:20px;">Program Internasional</h4>
+            <ul class="list-unstyled text-left" style="font-family:'Roboto';font-weight:400;margin-top:-5px;">
+            <li><a href="detail.php?jurusan=02">Bachelor of Information Technology</a></li>
+            </ul>
+    </div>
+    
+     <?php
+    echo" <img src='$jurusan[jurusan_gambar]' alt='' width='700px' height='500px' float:'left' class='gambar2'>";
+    ?>
+    <div class="bungkus">  
+      <div class="kotak1 detailaktif" onclick="tekanDeskrip()">Tentang Jurusan</div>
+      <div class="kotak2" onclick="tekanMakul()">Mata Kuliah </div>
+    </div>
+    <div class="cobak2" style="margin-right:0px">
+        <?php
+            echo $jurusan["jurusan_deskripsi"];
+        ?>
+    </div>
+    
+
+<footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-6 col-lg-3">
@@ -169,25 +233,43 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("#teacher").addClass("active");
-      $("#title").html("Certified Teacher");
-      $("#title2").html("Teacher");
-    });
-	function muncul(id_dosen){
-		$.ajax({
-			method: "post",
-			url: "teacher2.php",
-			data: {
-				dosen_id:id_dosen
-			},
-			success: function (data) {
-				$(".munculModal").html(data);
-				$("#exampleModal").modal("show");
-			}
-		});
-	}
-  </script>
-  </body>
+  
+</body>
 </html>
+
+<script>
+    var jurusan_id=<?php echo $id?>;
+    $(document).ready(function () {
+      $("#courses").addClass("active");
+      $("#title").html("Our Courses");
+      $("#title2").html("Courses");
+    });
+    function tekanDeskrip(){
+      $(".kotak1").addClass("detailaktif");
+      $(".kotak2").removeClass("detailaktif");
+      $.ajax({
+        method: "post",
+        url: "jurusan.php",
+        data:{
+          id:jurusan_id
+        },
+        success: function (response) {
+          $(".cobak2").html(response);
+        }
+      });
+    }
+    function tekanMakul(){
+      $(".kotak2").addClass("detailaktif");
+      $(".kotak1").removeClass("detailaktif");
+      $.ajax({
+        method: "post",
+        url: "matkul.php",
+        data:{
+          id:jurusan_id
+        },
+        success: function (response) {
+          $(".cobak2").html(response);
+        }
+      });
+    }
+  </script>
