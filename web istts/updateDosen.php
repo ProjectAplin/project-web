@@ -17,8 +17,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Update Kegiatan</h1>
-    Cari Kegiatan : <input type="text" name='edCari'>
+    <h1>Update Dosen</h1>
+    Cari Dosen : <input type="text" name='edCari'>
     <button id="btnCari">Search</button>
     <div id="container"></div>
 </body>
