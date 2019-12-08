@@ -1,7 +1,7 @@
 <style>
 div#calendar{
   margin:0px auto;
-  margin-left:80px;
+  /* margin-left:80px; */
   padding:0px;
   width: 1050px;
   font-family:Helvetica, "Times New Roman", Times, serif;
@@ -80,10 +80,10 @@ div#calendar ul.label li{
     width:80px;
     height:40px;
     line-height:40px;
-    vertical-align:middle;
+    vertical-align:top;
     text-align:center;
     color:#000;
-    font-size: 15px;
+    font-size: 10px;
     background-color: transparent;
 }
  
@@ -92,26 +92,26 @@ div#calendar ul.dates{
     float:left;
     margin: 0px;
     padding-left: 0px;
-    margin-left: 5px;
+    margin-left: 15px;
     margin-bottom: 5px;
 }
  
 /** overall width = width+padding-right**/
 div#calendar ul.dates li{
-    margin:0px;
-    padding:50px 70px;
+    /* margin:0px; */
+    padding:10px 0px 0;
     margin-right:5px;
     margin-top: 5px;
-    line-height:10px;
+    line-height:20px;
     vertical-align:middle;
     float:left;
     list-style-type:none;
-    width:80px;
-    height:80px;
-    font-size:25px;
+    width:140px;
+    height:130px;
+    font-size:15px;
     background-color: #DDD;
     color:#000;
-    text-align:center; 
+    text-align:left; 
 }
  
 :focus{
@@ -120,8 +120,10 @@ div#calendar ul.dates li{
  
 div.clear{
     clear:both;
-}     
+}   
+
 </style>
+
 
 <?php
      $tmp = 0;
@@ -281,6 +283,7 @@ class Calendar {
  
             $cellContent=null;
         }
+        $judul=" ";
         require("connect.php");
         $listKegiatan = mysqli_query($conn,"SELECT * FROM agenda_bahasa");
         $listTgl = mysqli_query($conn,"SELECT * FROM agenda");
@@ -291,7 +294,7 @@ class Calendar {
                     $tahun = substr($t,0,4);
                     $bulan = substr($t,5,2);
                     $tgl = substr($t,8,2); 
-                    if($tgl==$this->currentDate){
+                    if($tgl==$this->currentDay-1 && $tahun==$this->currentYear && $bulan==$this->currentMonth){
                         $judul = $kegiatan['agenda_judul'];
                     }
                 }
@@ -299,7 +302,7 @@ class Calendar {
         } 
 
         return '<li id="li-'.$this->currentDate.'" class="'.($cellNumber%7==1?' start ':($cellNumber%7==0?' end ':' ')).
-                ($cellContent==null?'mask':'').'">'.$cellContent.'<br><br></li>';
+                ($cellContent==null?'mask':'berisi').'">'.$cellContent.'<div style=`background:red; font-size:5px;`><br>'.$judul.'</div></li>';
     }
      
     /**
