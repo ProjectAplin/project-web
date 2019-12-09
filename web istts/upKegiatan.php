@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once("connect.php");
+    
     if(isset($_SESSION['id']))
     {
         $id = $_SESSION['id'];
@@ -16,6 +17,9 @@
             $lokasi = $row['lokasi'];
             $kategori = $row['kategori'];
             $temp = $row['tag'];
+            $judul_2 = $row['judul_2'];
+            $des_2 = $row['deskripsi_2'];
+            $lokasi_2 = $row['lokasi_2'];
             $tag = explode('|',$temp);
         }
     }
@@ -23,9 +27,12 @@
     if(isset($_POST['btnSubmit']))
     {
         $judul = $_POST['edJudul'];
+        $judul_2 = $_POST['edJudul_2'];
         $desc = $_POST['edDeskripsi'];
+        $desc_2 = $_POST['edDeskripsi_2'];
         $tgl = $_POST['edDate'];
         $lokasi = $_POST['edLokasi'];
+        $lokasi_2 = $_POST['edLokasi_2'];
         $kat = $_POST['edKategori'];
         $tag1="";
         for ($i=0; $i < count($_POST['tagKegiatan']); $i++) {
@@ -47,12 +54,12 @@
         {
             if($filename!="")
             {
-                $query = "UPDATE kegiatan SET judul='$judul',deskripsi='$desc',tanggal='$tgl',lokasi='$lokasi',kategori='$kat',tag='$tag1',foto='$fileDestination' WHERE id=$id";
+                $query = "UPDATE kegiatan SET judul='$judul',deskripsi='$desc',tanggal='$tgl',lokasi='$lokasi',kategori='$kat',tag='$tag1',foto='$fileDestination',judul_2='$judul_2',deskripsi_2='$desc_2',lokasi_2='$lokasi_2' WHERE id=$id";
                 $conn->query($query);
             }
             else 
             {
-                $query = "UPDATE kegiatan SET judul='$judul',deskripsi='$desc',tanggal='$tgl',lokasi='$lokasi',kategori='$kat',tag='$tag1' WHERE id=$id";
+                $query = "UPDATE kegiatan SET judul='$judul',deskripsi='$desc',tanggal='$tgl',lokasi='$lokasi',kategori='$kat',tag='$tag1',judul_2='$judul_2',deskripsi_2='$desc_2',lokasi_2='$lokasi_2' WHERE id=$id";
                 $conn->query($query);
             }
         }
@@ -74,19 +81,19 @@
 <body>
 <form action="updateKegiatan.php" method="post" enctype='multipart/form-data'>
         <h1>Tambah Kegiatan Baru</h1>
-        Nama Kegiatan : <input type="text" name="edJudul" value=<?=$judul?>><br>
+        Nama Kegiatan : <input type="text" name="edJudul" value=<?=$judul?>required><br>
+        Event Name [Inggris] : <input type="text" name="edJudul_2" required> <br>
         Gambar Kegiatan : <input type="file" name="file"><br>
-        Tanggal Kegiatan : <input type="date" name="edDate"  value=<?=$tgl?>><br>
-        Lokasi Kegiatan : <input type="text" name="edLokasi" value=<?=$lokasi?>><br>
-        Deskripsi Kegiatan : <br><textarea name="edDeskripsi" cols="30" rows="10"> <?=$des?></textarea><br>
+        Tanggal Kegiatan : <input type="date" name="edDate"  value=<?=$tgl?>required><br>
+        Lokasi Kegiatan : <input type="text" name="edLokasi" value=<?=$lokasi?>required><br>
+        Event Location : <input type="text" name="edLokasi_2" value=<?=$lokasi_2?> required><br>
+        Deskripsi Kegiatan : <br><textarea name="edDeskripsi" cols="30" rows="10" required> <?=$des?></textarea><br>
+        Deskripsi Kegiatan : <br><textarea name="edDeskripsi" cols="30" rows="10" required></textarea><br>
         Kategori Kegiatan :
         <select name="edKategori" id="">
-            <option value="UKK KMK & PD" <?php if($kategori=="UKK KMK & PD"){echo "selected";} ?>>UKK KMK & PD</option>
-            <option value="UKK BUDDHIS" <?php if($kategori=="UKK BUDDHIS"){echo "selected";} ?>>UKK BUDDHIS</option>
-            <option value="HIMA" <?php if($kategori=="HIMA"){echo "selected";} ?>>HIMA</option>
-            <option value="ECC" <?php if($kategori=="ECC"){echo "selected";} ?>>ECC</option>
-            <option value="BEM" <?php if($kategori=="BEM"){echo "selected";} ?>>BEM</option>
-            <option value="LAIN - LAIN" <?php if($kategori=="LAIN-LAIN"){echo "selected";} ?>>LAIN - LAIN</option>
+        <option value="Agenda" <?=if($kategori=="Agenda"){echo "selected";}?>>Agenda</option>
+            <option value="Berita" <?=if($kategori=="Berita"){echo "selected";}?>>Berita</option>
+            <option value="Media" <?=if($kategori=="Media"){echo "selected";}?>>Media</option>
         </select>
         <br>
         Tag : 

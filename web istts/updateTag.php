@@ -8,7 +8,7 @@
     if(isset($_POST['btnEdit']))
     {
         $_SESSION['id'] = $_POST['btnEdit'];
-        header("location:upKegiatan.php");
+        header("location:upTag.php");
     }
 ?>
 <!DOCTYPE html>
@@ -21,8 +21,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Update Kegiatan</h1>
-    Cari Kegiatan : <input type="text" name='edCari'>
+    <h1>Update Tag</h1>
+    Cari Tag : <input type="text" name='edCari'>
     <button id="btnCari">Search</button>
     <div id="container"></div>
 </body>
@@ -35,7 +35,7 @@
                 url: "cari.php",
                 data: {
                     nama : nama,
-                    kode : 2
+                    kode : 4
                 },
                 success: function (response) {
                     $("#container").html(response);
