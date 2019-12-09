@@ -26,7 +26,14 @@
     <?php
       include("topnavbar.php");
       include("title.php");
+      echo "<p style='text-align:center;margin-top:50px;font-size:100px;'>Agenda</p>";
+      include("kalender.php");
+      $k = new Calendar();
     ?>
+
+    <div class="row" style="align:center;margin-top:-50px;">
+    <?php echo $k->show();?>
+    </div>
 		
 		<section class="ftco-section bg-light">
 			<div class="container">
@@ -277,8 +284,9 @@
   <script>
     $(document).ready(function () {
       $("#agenda").addClass("active");
-      $("#title").html("Agenda");
-      $("#title2").html("Agenda");
+      $("#title").html("Event & Agenda");
+      $("#title2").html("Event & Agenda");
+      $(".berisi").css("float","left");
     });
   </script> 
   </body>
