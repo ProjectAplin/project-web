@@ -126,53 +126,13 @@ div.clear{
 
 
 <?php
+    // session_start();
+    if(isset($_POST['searchAgenda'])){
+        header("location:agenda.php");
+    }
      $tmp = 0;
      $listKegiatan;
      $listTgl;
-    //  foreach ($listKegiatan as $kegiatan){
-    //     $ctr = 1;
-    //     foreach($listTgl as $tgl){
-    //       if($kegiatan['agenda_id']==$tgl['agenda_id']){
-    //         $t = $tgl['agenda_tgl']; 
-    //         $tahun = substr($t,0,4);
-    //         $bulan = substr($t,5,2);
-    //         $tgl = substr($t,8,2); 
-    //         $judul = $kegiatan['agenda_judul'];
-    //         if($bulan=="02" && $tahun=="2012"){
-    //           for ($i=0; $i < 30 ; $i++) { 
-    //             if($tgl<10){
-    //               if($tgl == "0"+($i+1)){
-    //                 echo"<li>";
-    //                 echo"<div class='date'>$tgl</div>";
-    //                 echo"<div class='event bg-success'>$judul</div>";
-    //                 echo"</li>";
-    //                 $ctr++;
-    //               }else{
-    //                 echo"<li>";
-    //                 echo"<div class='date'>$ctr</div>";
-    //                 echo"</li>";
-    //                 $ctr++;
-    //               }
-    //             }else{
-    //               if($tgl == $i+1){
-    //                 echo"<li>";
-    //                 echo"<div class='date'>$tgl</div>";
-    //                 echo"<div class='event bg-success'>$judul</div>";
-    //                 echo"</li>";
-    //                 $ctr++;
-    //               }else{
-    //                 echo"<li>";
-    //                 echo"<div class='date'>$ctr</div>";
-    //                 echo"</li>";
-    //                 $ctr++;
-    //               }
-    //             }
-    //           }
-              
-    //         }
-    //       }
-    //     } 
-    //   }
 class Calendar {  
     public function __construct(){     
         $this->naviHref = htmlentities($_SERVER['PHP_SELF']);
@@ -302,7 +262,9 @@ class Calendar {
         } 
 
         return '<li id="li-'.$this->currentDate.'" class="'.($cellNumber%7==1?' start ':($cellNumber%7==0?' end ':' ')).
-                ($cellContent==null?'mask':'berisi').'">'.$cellContent.'<div style=`background:red; font-size:5px;`><br>'.$judul.'</div></li>';
+                ($cellContent==null?'mask':'berisi').'">'.$cellContent.'<div style="font-size:5px;"><br>
+                <a href="agenda.php?title='.$judul.'">'.$judul.'</a></div></li>';
+                
     }
      
     /**
