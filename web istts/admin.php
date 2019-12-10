@@ -1,23 +1,25 @@
 <?php
-    require_once("connect.php");
-    if(isset($_POST['edTmbhEvent']))
+    session_start();
+    if(isset($_POST['btnSubmit']))
     {
-        header("location:tambahKegiatan.php");
-    }
-
-    if(isset($_POST['edUpdateEvent']))
-    {
-        header("location:updateKegiatan.php");
-    }
-
-    if(isset($_POST['edTmbhDosen']))
-    {
-        header("location:tambahDosen.php");
-    }
-
-    if(isset($_POST['edUpdateDosen']))
-    {
-        header("location:updateDosen.php");
+        $user = $_POST['edUser'];
+        $pass = $_POST['edPass'];
+        if($user=="admin")
+        {
+            if($user==$pass)
+            {
+                $_SESSION["user"]="admin";
+                header("location:home.php");
+            }
+            else
+            {
+                echo "Password salah";
+            }
+        }
+        else
+        {
+            echo "Username salah";
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -26,15 +28,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>iSTTS - Admin    </title>
+    <title>Document</title>
 </head>
 <body>
     <form action="#" method="post">
-        <h1>Welcome Admin</h1>
-        <input type="submit" value="Tambah Kegiatan Baru" name='edTmbhEvent'>
-        <input type="submit" value="Update Kegiatan" name='edUpdateEvent'> <br>
-        <input type="submit" value="Tambah Dosen Baru" name='edTmbhDosen'>
-        <input type="submit" value="Update Dosen" name='edUpdateDosen'> <br>
+        <h1>Login to Page Admin</h1>
+        Username : <input type="text" name="edUser"><br>
+        Password : <input type="password" name="edPass"><br>
+        <input type="submit" value="Login" name="btnSubmit">
     </form>
 </body>
 </html>

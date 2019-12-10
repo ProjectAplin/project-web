@@ -1,6 +1,10 @@
 <?php
     session_start();
     require_once("connect.php");
+    if(!isset($_SESSION['user']))
+    {
+        header("location:admin.php");
+    }
     if(isset($_POST['btnEdit']))
     {
         $_SESSION['id'] = $_POST['btnEdit'];
