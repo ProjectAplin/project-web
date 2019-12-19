@@ -44,7 +44,7 @@
         $query = "SELECT * FROM kegiatan WHERE judul_1 LIKE '%$nama%'";
         $result = mysqli_query($conn,$query);
         if (mysqli_num_rows($result) > 0) {
-           // echo "<form method='post' action='#'>";
+            echo "<form method='post' action='#'>";
             echo "<table border=1>";
             echo "<thead>";
             echo "<tr>";
