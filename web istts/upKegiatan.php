@@ -162,6 +162,7 @@
                 </ul>
               </div>
             </li>
+            <li class="nav-item"> <a class="nav-link" href="admin.php">Logout</a></li>
           </ul>
         </nav>
         <!-- partial -->
