@@ -14,7 +14,7 @@ div#calendar div.box{
     left:0px;
     width:100%;
     height:40px;
-    background-color:   #787878 ;      
+    background-color:   #800000  ;      
 }
  
 div#calendar div.header{
@@ -302,7 +302,9 @@ class Calendar {
         } 
 
         return '<li id="li-'.$this->currentDate.'" class="'.($cellNumber%7==1?' start ':($cellNumber%7==0?' end ':' ')).
-                ($cellContent==null?'mask':'berisi').'">'.$cellContent.'<div style=`background:red; font-size:5px;`><br>'.$judul.'</div></li>';
+                ($cellContent==null?'mask':'berisi').'">'.$cellContent.'<div style="font-size:1px; margin-top:-20px;letter-spacing: -1px;"><br>
+                <a href="blog.php?title='.$judul.'">'.$judul.'</a></div></li>';
+                
     }
      
     /**

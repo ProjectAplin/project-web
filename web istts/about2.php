@@ -24,6 +24,7 @@
   </head>
   <body>
       <?php
+        require("connect.php");
         include("topnavbar.php");
         include("title.php");
       ?>

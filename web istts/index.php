@@ -8,7 +8,7 @@
 	  font-family:Flaticon;
 	  src:url(DancingScript-Regular.otf),format('truetype');
 	}
-	
+  
 	h1{
 		font-family:times new roman;
 		font-style: italic;
@@ -36,6 +36,8 @@
   <body>
 
 	  <?php
+        $_SESSION['lang'] = "inggris";
+        // echo "bhs ".$_SESSION['lang'];
         include("topnavbar.php"); 
         include("carrousel.php"); 
         include("desc.php"); 
@@ -48,7 +50,7 @@
         include("gallery.php"); 
         include("footer.php"); 
       ?>
-
+  <div class="isi">aa</div>
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -68,6 +70,14 @@
   <script>
     $(document).ready(function(){
       $("#index").addClass("active");
+      $("#indonesia , #inggris").click(function(){
+        $.post("bahasa.php",{bahasa_id:$(this).attr("id")},function(result){
+          $(".topnavbar").html(result);
+          $(".desc").html(result);
+          
+        });
+      });
+      
     });
   </script>
   </body>

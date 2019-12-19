@@ -27,6 +27,8 @@
   </style>
   <body>
     <?php
+        require("connect.php");
+        // $_SESSION['lang']="";
         include("topnavbar.php");
         include("title.php");
     ?> 
