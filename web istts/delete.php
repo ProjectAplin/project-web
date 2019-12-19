@@ -23,10 +23,9 @@
     else if($kode==4)
     {
         $id = $_POST['id'];
-        echo "$id";
-        // $query = "DELETE FROM tag_bahasa WHERE tag_id=$id";
-        // mysqli_query($conn,$query);
-        // $query1 = "DELETE FROM tag WHERE tag_id=$id";
-        // mysqli_query($conn,$query1);
+        $query = "DELETE FROM tag_bahasa WHERE tag_id=$id";
+        mysqli_query($conn,$query);
+        $query1 = "DELETE FROM tag WHERE tag_id=$id";
+        mysqli_query($conn,$query1);
     }
 ?>
