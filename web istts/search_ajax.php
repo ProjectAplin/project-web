@@ -1,7 +1,12 @@
 <?php
           include("connect.php");
           $kata=$_POST['kata'];
-          $agenda=mysqli_query($conn,"SELECT * from agenda_bahasa where agenda_judul like '%$kata%' or agenda_deskripsi like '%$kata%' order by agenda_id desc limit 1");
+          $bahasa=1;
+            session_start();
+          if($_SESSION["lang"]=="inggris"){
+            $bahasa=2;
+          }
+          $agenda=mysqli_query($conn,"SELECT * from kegiatan where judul_$bahasa like '%$kata%' or deskripsi_$bahasa like '%$kata%' order by id desc limit 1");
          
          //$dosen=mysqli_query($conn,"SELECT * from dosen where dosen_nama like '%$kata%' or dosen_email like '%$kata%' order by dosen_id desc limit 9");
          
@@ -10,16 +15,22 @@
                 <div class='container-fluid px-4' >				
                     <div class='row'>
             ";
-
+            // <p>";
+            // $ket=$value["jurusan_des_$bahasa"];
+            // echo "$ket</p>
             foreach ($agenda as $key => $value) {
                 // $desc=substr($value["agenda_deskripsi"],0,50);
                     echo"
                     <div class='col-md-3 course ftco-animate'>
-                        <div class='img' style='background-image: url(images/amelia.jpg);'></div>
+                        <div class='img' style='background-image: url($value[foto]);'></div>
                         <div class='text pt-4'>
-                            <h3><a href='#'>$value[agenda_judul]</a></h3>
-                            <p>$value[agenda_deskripsi]</p>
-                            <p><a href='detail.php?jurusan=$value[agenda_id]' class='btn btn-primary'>See more</a></p>
+                            <h3><a href='#'>";
+                            $judul=$value["judul_$bahasa"];
+                            echo "$judul;</a></h3>
+                            <p>";
+                            $deskripsi=$value["deskripsi_$bahasa"];
+                            echo "$deskripsi</p>
+                            <p><a href='detail.php?jurusan=$value[id]' class='btn btn-primary'>See more</a></p>
                         </div>
                     </div>	
                     ";
