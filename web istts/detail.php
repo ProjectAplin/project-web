@@ -51,13 +51,12 @@
     }
     .kotak1{
         clear:both;
+        float:left;
         color:black;
         background-color:white;
         border:1px solid black;
         width:150px;
         height:50px;
-        margin-top:10px;
-        margin-left:600px; 
         text-align:center;
     }
     .kotak1:hover{
@@ -65,15 +64,18 @@
     }
     .kotak2{
         color:black;
+        float:left;
         background-color:white;
         border:1px solid black;
         width:150px;
         height:50px;
-         margin-left:754.5px;
-        margin-top:-52px;
         text-align:center;
     }
-   
+    .bungkus{
+      margin-left:40%;
+      margin-right:40%;
+      width:50%;
+    }
     .kotak2:hover{
         background-color:#f2f2f2;
     }
@@ -120,9 +122,9 @@
       <div class="kotak1 detailaktif" onclick="tekanDeskrip()">Tentang Jurusan</div>
       <div class="kotak2" onclick="tekanMakul()">Mata Kuliah </div>
     </div>
-    <div class="cobak2" style="margin-right:0px">
+    <div class="cobak2" style="margin-right:0px;clear:both">
         <?php
-            echo $jurusan["jurusan_deskripsi"];
+            echo $jurusan["jurusan_deskripsi_1"];
         ?>
     </div>
     

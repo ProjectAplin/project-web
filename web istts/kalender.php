@@ -1,11 +1,11 @@
 <style>
 div#calendar{
+  margin:0px auto;
   /* margin-left:80px; */
   padding:0px;
-  width: 800px;
+  width: 1050px;
   font-family:Helvetica, "Times New Roman", Times, serif;
   margin-top:100px;
-  margin-left:50px;
 }
  
 div#calendar div.box{
@@ -41,7 +41,6 @@ div#calendar div.header a.prev,div#calendar div.header a.next{
 div#calendar div.header span.title{
     color:#FFF;
     font-size:18px;
-    margin-left:-400px;
 }
  
  
@@ -50,7 +49,7 @@ div#calendar div.header a.prev{
 }
  
 div#calendar div.header a.next{
-    right:400px;
+    right:0px;
 }
  
  
@@ -74,7 +73,8 @@ div#calendar ul.label{
  
 div#calendar ul.label li{
     margin:0px;
-    padding-left:4px; 
+    padding-left:50px;
+    margin-right:69px;  
     float:left;
     list-style-type:none;
     width:80px;
@@ -99,15 +99,15 @@ div#calendar ul.dates{
 /** overall width = width+padding-right**/
 div#calendar ul.dates li{
     /* margin:0px; */
-    padding:5px 0px 0;
+    padding:10px 0px 0;
     margin-right:5px;
     margin-top: 5px;
     line-height:20px;
     vertical-align:middle;
     float:left;
     list-style-type:none;
-    width:80px;
-    height:70px;
+    width:140px;
+    height:130px;
     font-size:15px;
     background-color: #DDD;
     color:#000;
@@ -126,13 +126,53 @@ div.clear{
 
 
 <?php
-    // session_start();
-    if(isset($_POST['searchAgenda'])){
-        header("location:agenda.php");
-    }
      $tmp = 0;
      $listKegiatan;
      $listTgl;
+    //  foreach ($listKegiatan as $kegiatan){
+    //     $ctr = 1;
+    //     foreach($listTgl as $tgl){
+    //       if($kegiatan['agenda_id']==$tgl['agenda_id']){
+    //         $t = $tgl['agenda_tgl']; 
+    //         $tahun = substr($t,0,4);
+    //         $bulan = substr($t,5,2);
+    //         $tgl = substr($t,8,2); 
+    //         $judul = $kegiatan['agenda_judul'];
+    //         if($bulan=="02" && $tahun=="2012"){
+    //           for ($i=0; $i < 30 ; $i++) { 
+    //             if($tgl<10){
+    //               if($tgl == "0"+($i+1)){
+    //                 echo"<li>";
+    //                 echo"<div class='date'>$tgl</div>";
+    //                 echo"<div class='event bg-success'>$judul</div>";
+    //                 echo"</li>";
+    //                 $ctr++;
+    //               }else{
+    //                 echo"<li>";
+    //                 echo"<div class='date'>$ctr</div>";
+    //                 echo"</li>";
+    //                 $ctr++;
+    //               }
+    //             }else{
+    //               if($tgl == $i+1){
+    //                 echo"<li>";
+    //                 echo"<div class='date'>$tgl</div>";
+    //                 echo"<div class='event bg-success'>$judul</div>";
+    //                 echo"</li>";
+    //                 $ctr++;
+    //               }else{
+    //                 echo"<li>";
+    //                 echo"<div class='date'>$ctr</div>";
+    //                 echo"</li>";
+    //                 $ctr++;
+    //               }
+    //             }
+    //           }
+              
+    //         }
+    //       }
+    //     } 
+    //   }
 class Calendar {  
     public function __construct(){     
         $this->naviHref = htmlentities($_SERVER['PHP_SELF']);
@@ -163,8 +203,7 @@ class Calendar {
          
         }else if(null==$year){
  
-            //ini tak minus 7 ke 2012
-            $year = date("Y",time());  
+            $year = date("Y",time())-7;  
          
         }          
          
@@ -245,40 +284,25 @@ class Calendar {
             $cellContent=null;
         }
         $judul=" ";
-        require("connect.php"); 
-        // $listKegiatan = mysqli_query($conn,"SELECT * FROM agenda_bahasa");
-        // $listTgl = mysqli_query($conn,"SELECT * FROM agenda");
-        // foreach ($listKegiatan as $kegiatan){
-        //     foreach($listTgl as $tgl){
-        //         if($kegiatan['agenda_id']==$tgl['agenda_id']){
-        //             $t = $tgl['agenda_tgl']; 
-        //             $tahun = substr($t,0,4);
-        //             $bulan = substr($t,5,2);
-        //             $tgl = substr($t,8,2); 
-        //             if($tgl==$this->currentDay-1 && $tahun==$this->currentYear && $bulan==$this->currentMonth){
-        //                 $judul = $kegiatan['agenda_judul'];
-        //             }
-        //         }
-        //     }
-        // } 
-        
-        $listKegiatan = mysqli_query($conn,"SELECT * FROM kegiatan");
+        require("connect.php");
+        $listKegiatan = mysqli_query($conn,"SELECT * FROM agenda_bahasa");
+        $listTgl = mysqli_query($conn,"SELECT * FROM agenda");
         foreach ($listKegiatan as $kegiatan){
-            //if($kegiatan['kategori']=='Agenda'){
-                $t = $kegiatan['tanggal']; 
-                $tahun = substr($t,0,4);
-                $bulan = substr($t,5,2);
-                $tgl = substr($t,8,2); 
-                if($tgl==$this->currentDay-1 && $tahun==$this->currentYear && $bulan==$this->currentMonth){
-                    $judul = $kegiatan['judul_1'];
+            foreach($listTgl as $tgl){
+                if($kegiatan['agenda_id']==$tgl['agenda_id']){
+                    $t = $tgl['agenda_tgl']; 
+                    $tahun = substr($t,0,4);
+                    $bulan = substr($t,5,2);
+                    $tgl = substr($t,8,2); 
+                    if($tgl==$this->currentDay-1 && $tahun==$this->currentYear && $bulan==$this->currentMonth){
+                        $judul = $kegiatan['agenda_judul'];
+                    }
                 }
-            //}
+            }
         } 
 
         return '<li id="li-'.$this->currentDate.'" class="'.($cellNumber%7==1?' start ':($cellNumber%7==0?' end ':' ')).
-                ($cellContent==null?'mask':'berisi').'">'.$cellContent.'<div style="font-size:1px; margin-top:-20px;"><br>
-                <a href="blog.php?title='.$judul.'">'.$judul.'</a></div></li>';
-                
+                ($cellContent==null?'mask':'berisi').'">'.$cellContent.'<div style=`background:red; font-size:5px;`><br>'.$judul.'</div></li>';
     }
      
     /**

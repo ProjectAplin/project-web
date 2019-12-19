@@ -73,7 +73,7 @@
 								<div class='text pt-4'>
 									
 									<h3><a href='#'>$value[jurusan_nama]</a></h3>
-									<p>$value[jurusan_deskripsi2]</p>
+									<p>$value[jurusan_des_1]</p>
 									<p><a href='detail.php?jurusan=$value[jurusan_id]' class='btn btn-primary'>See more</a></p>
 								</div>
 							</div>

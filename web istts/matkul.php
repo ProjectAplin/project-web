@@ -1,10 +1,10 @@
 <?php
     include("connect.php");
     $id=$_POST["id"];
-    $ke=9;
+    $ke=9;//8 semester
     if($id==1){
         $id=11;
-        $ke=7;
+        $ke=7; //6 semester
     }
     for ($i=1; $i <$ke;$i++) { 
         $matkul_sem=mysqli_query($conn,"SELECT * from matkul where jurusan_id=$id and matkul_semester=$i");
