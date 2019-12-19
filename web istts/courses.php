@@ -35,6 +35,8 @@
   }
   </style>
   		<?php
+      require("connect.php");
+      // $_SESSION['lang']="";
 			include("topnavbar.php");
 			include("title.php");
 			include("connect.php");

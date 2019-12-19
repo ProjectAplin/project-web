@@ -3,15 +3,25 @@
 			position: sticky;
 			top: 0px;
 		}
+		.open .dropdown-toggle.btn-primary {
+			color: white;
+			background-color: #fec503;
+			border-color: #f6bf01;
+		}
+		.dropdown-menu {
+			top:50px;
+			left:760px;
+		}
 	  
 	  </style>
 	  
 	<?php
-	
+		require("connect.php");
+		session_start();
+		// echo "bhs e".$_SESSION['lang'];
 		if(isset($_POST['btnSearch'])){
 			$kata=$_POST["search"];
 			header("location:search.php?kata=$kata");
-			echo "a";
 		}
 	?>
 	  <div class="bg-top navbar-light">
@@ -38,7 +48,7 @@
 					    </div>
 					    <div class="col-md topper d-flex align-items-center justify-content-end">
 					    	<p class="mb-0">
-					    		<a href="#" class="btn py-2 px-3 btn-primary d-flex align-items-center justify-content-center">
+					    		<a href="https://pmb.stts.edu/manajemen/index.php" class="btn py-2 px-3 btn-primary d-flex align-items-center justify-content-center">
 					    			<span>Apply now</span>
 					    		</a>
 					    	</p>
@@ -48,7 +58,7 @@
 		    </div>
 		  </div>
     </div>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar" style="position:sticky;top:0px">
+	<nav class="navbar navbar-expand-lg navbar-dark  ftco-navbar-light" id="ftco-navbar" style="position:sticky;top:0px;padding:0px;">
 	    <div class="container d-flex align-items-center px-4">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
@@ -59,17 +69,54 @@
             <button type="submit" placeholder="" name="btnSearch" class="form-control search"><span class="ion-ios-search"></span></button>
           </div>
         </form>
-	      <div class="collapse navbar-collapse" id="ftco-nav sticky">
-	        <ul class="navbar-nav mr-auto">
-	        	<li class="nav-item" id="index"><a href="index.php" class="nav-link pl-0">Home</a></li>
-	        	<li class="nav-item" id="about"><a href="about2.php" class="nav-link">About</a></li>
-	        	<li class="nav-item" id="courses"><a href="courses.php" class="nav-link">Courses</a></li>
-	        	<li class="nav-item" id="teacher"><a href="teacher.php" class="nav-link">Staff</a></li>
-	        	<li class="nav-item" id="agenda"><a href="blog.php" class="nav-link">Event & Agenda</a></li>
-	          <li class="nav-item" id="contact"><a href="contact.php" class="nav-link">Student Activity</a></li>
+	      
+			<?php
+				
+				if($_SESSION['lang']=="inggris"){
+					?>
+					<div class="topbnavbar collapse navbar-collapse" id="ftco-nav sticky">
+					<ul class="navbar-nav mr-auto">
+					<li class="nav-item" id="index"><a href="index.php" class="nav-link pl-0">Home</a></li>
+					<li class="nav-item" id="about"><a href="about2.php" class="nav-link">About</a></li>
+					<li class="nav-item" id="courses"><a href="courses.php" class="nav-link">Courses</a></li>
+					<li class="nav-item" id="teacher"><a href="teacher.php" class="nav-link">Staff</a></li>
+					<li class="nav-item" id="agenda"><a href="blog.php" class="nav-link">Event & Agenda</a></li>
+					<li class="nav-item" id="contact"><a href="contact.php" class="nav-link">Student Activity</a></li>
+					<li class="nav-item"><a class="nav-link dropdown dropdown-toggle" id="menu-bahasa" href="" data-toggle="dropdown">Language<span class="caret"></span></a>
+						<ul class="dropdown-menu ">
+						<li style="cursor:pointer;"><a id="indonesia">Indonesia</a></li>
+						<li style="cursor:pointer;"><a id="inggris">English</a></li>
+						</ul>
+					</li>
+					</ul>
+					</div>
+					<?php
+				}
+				else{
+					?>
+					<div class="topnavbar collapse navbar-collapse" id="ftco-nav sticky">
+					<ul class="navbar-nav mr-auto">
+					<li class="nav-item" id="index"><a href="index.php" class="nav-link pl-0">Beranda</a></li>
+					<li class="nav-item" id="about"><a href="about2.php" class="nav-link">Tentang</a></li>
+					<li class="nav-item" id="courses"><a href="courses.php" class="nav-link">Akademik</a></li>
+					<li class="nav-item" id="teacher"><a href="teacher.php" class="nav-link">Dosen</a></li>
+					<li class="nav-item" id="agenda"><a href="blog.php" class="nav-link">Event & Agenda</a></li>
+					<li class="nav-item" id="contact"><a href="contact.php" class="nav-link">Aktifitas</a></li>
+					<li class="nav-item"><a class="nav-link dropdown dropdown-toggle" id="menu-bahasa" href="" data-toggle="dropdown">Bahasa<span class="caret"></span></a>
+						<ul class="dropdown-menu ">
+						<li style="cursor:pointer;"><a id="indonesia">Indonesia</a></li>
+						<li style="cursor:pointer;"><a id="inggris">Inggris</a></li>
+						</ul>
+					</li>
+					</ul>
+					</div>
+					<?php
+				}
+			?>
+	        	
 
-	        </ul>
-	      </div>
+
+	        
 	    </div>
 	  </nav>
 	  
