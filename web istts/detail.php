@@ -93,6 +93,12 @@
     include("connect.php");
     include("topnavbar.php");
     include("title.php");
+
+    $bahasa=1;
+      
+      if($_SESSION["lang"]=="inggris"){
+        $bahasa=2;
+      }
     $id=$_GET["jurusan"];
     $jurusan=mysqli_fetch_assoc(mysqli_query($conn,"SELECT * from jurusan_bahasa where jurusan_id=$id"));
     ?>
@@ -124,7 +130,7 @@
     </div>
     <div class="cobak2" style="margin-right:0px;clear:both">
         <?php
-            echo $jurusan["jurusan_deskripsi_1"];
+            echo $jurusan["jurusan_deskripsi_$bahasa"];
         ?>
     </div>
     

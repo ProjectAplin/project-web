@@ -42,6 +42,11 @@
 			include("connect.php");
 			//$jurusan=mysqli_query($conn,"SELECT * from jurusan_bahasa where jurusan_bahasa_id<>2");
       $jurusan=mysqli_query($conn,"SELECT * from jurusan_bahasa");
+      $bahasa=1;
+      
+      if($_SESSION["lang"]=="inggris"){
+        $bahasa=2;
+      }
       //sertifikasi.php?jenis=sertifikasi&id=8
 	  ?>
     <div class="cobak">
@@ -75,7 +80,9 @@
 								<div class='text pt-4'>
 									
 									<h3><a href='#'>$value[jurusan_nama]</a></h3>
-									<p>$value[jurusan_des_1]</p>
+                  <p>";
+                  $ket=$value["jurusan_des_$bahasa"];
+                  echo "$ket</p>
 									<p><a href='detail.php?jurusan=$value[jurusan_id]' class='btn btn-primary'>See more</a></p>
 								</div>
 							</div>

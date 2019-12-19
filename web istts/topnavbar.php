@@ -19,6 +19,7 @@
 		require("connect.php");
 		session_start();
 		// echo "bhs e".$_SESSION['lang'];
+	
 		if(isset($_POST['btnSearch'])){
 			$kata=$_POST["search"];
 			header("location:search.php?kata=$kata");
@@ -78,14 +79,14 @@
 					<ul class="navbar-nav mr-auto">
 					<li class="nav-item" id="index"><a href="index.php" class="nav-link pl-0">Home</a></li>
 					<li class="nav-item" id="about"><a href="about2.php" class="nav-link">About</a></li>
-					<li class="nav-item" id="courses"><a href="courses.php" class="nav-link">Courses</a></li>
+					<li class="nav-item" id="courses"><a href="courses2.php" class="nav-link">Courses</a></li>
 					<li class="nav-item" id="teacher"><a href="teacher.php" class="nav-link">Staff</a></li>
 					<li class="nav-item" id="agenda"><a href="blog.php" class="nav-link">Event & Agenda</a></li>
 					<li class="nav-item" id="contact"><a href="contact.php" class="nav-link">Student Activity</a></li>
 					<li class="nav-item"><a class="nav-link dropdown dropdown-toggle" id="menu-bahasa" href="" data-toggle="dropdown">Language<span class="caret"></span></a>
 						<ul class="dropdown-menu ">
-						<li style="cursor:pointer;"><a id="indonesia">Indonesia</a></li>
-						<li style="cursor:pointer;"><a id="inggris">English</a></li>
+						<li style="cursor:pointer;"><a id="indonesia" onclick="ganti('indo')">Indonesia</a></li>
+						<li style="cursor:pointer;"><a id="inggris" onclick="ganti('inggris')">English</a></li>
 						</ul>
 					</li>
 					</ul>
@@ -104,8 +105,8 @@
 					<li class="nav-item" id="contact"><a href="contact.php" class="nav-link">Aktifitas</a></li>
 					<li class="nav-item"><a class="nav-link dropdown dropdown-toggle" id="menu-bahasa" href="" data-toggle="dropdown">Bahasa<span class="caret"></span></a>
 						<ul class="dropdown-menu ">
-						<li style="cursor:pointer;"><a id="indonesia">Indonesia</a></li>
-						<li style="cursor:pointer;"><a id="inggris">Inggris</a></li>
+						<li style="cursor:pointer;"><a id="indonesia" onclick="ganti('indo')">Indonesia</a></li>
+						<li style="cursor:pointer;"><a id="inggris" onclick="ganti('inggris')">Inggris</a></li>
 						</ul>
 					</li>
 					</ul>
@@ -119,4 +120,19 @@
 	        
 	    </div>
 	  </nav>
-	  
+	  <script src="jquery-3.3.1.min.js"></script>
+	  <script>
+	  function ganti(bahasa){
+		  
+		$.ajax({
+			  method: "post",
+			  url: "gantibahasa.php",
+			  data: {
+				  bahasa:bahasa
+			  },
+			  success: function (response) {
+				  location.reload();
+			  }
+		  });
+	  }
+	  </script>
