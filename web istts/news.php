@@ -9,6 +9,7 @@
 				<div class="row">
           <?php
           require("connect.php");
+          $judul=""; $isi="";
           $listKegiatan = mysqli_query($conn,"SELECT * FROM kegiatan");
           foreach ($listKegiatan as $kegiatan){
              if($kegiatan['kategori']=="Berita"){
@@ -16,6 +17,13 @@
                 $tahun = substr($t,0,4);
                 $bulan = substr($t,5,2);
                 $tgl = substr($t,8,2); 
+                if($_SESSION['lang']=="inggris"){
+                  $judul = $kegiatan['judul_2'];
+                  $isi = $kegiatan['deskripsi_2'];
+                }else{
+                  $judul = $kegiatan['judul_1'];
+                  $isi = $kegiatan['deskripsi_1'];
+                }
                 $monthName = date('F', mktime(0, 0, 0, $bulan, 10));
                 ?>
                   <div class="ftco-animate" style="margin:0 auto; flex: 0 0 45%;
@@ -29,10 +37,10 @@
                         </div>
                       </a>
                       <div class="text bg-white p-4">
-                        <h3 class="heading"><a href="#"><?=$kegiatan['judul_1']?></a></h3>
-                        <p><?=$kegiatan['deskripsi_1']?></p>
+                        <h3 class="heading"><a href="#"><?=$judul?></a></h3>
+                        <p><?=$isi?></p>
                         <div class="d-flex align-items-center mt-4">
-                        <p class="mb-0"><a href="agenda.php?title=<?=$kegiatan['judul_1']?>" class="btn btn-primary">Selengkapnya <span class="ion-ios-arrow-round-forward"></span></a></p>
+                        <p class="mb-0"><a href="agenda.php?title=<?=$judul?>" class="btn btn-primary">Selengkapnya <span class="ion-ios-arrow-round-forward"></span></a></p>
                         <p class="ml-auto mb-0">
                          </p>
                       </div>

@@ -2039,7 +2039,72 @@ $(document).ready(function(){
 		<div class="col-md-12 offset-md-3">
 			<ul class="timeline">
 				<li>
-					<a href="#" class="float-left">1979</a><br>
+        <?php
+          require("connect.php");
+          // session_start();
+          if($_SESSION['lang']=="inggris"){
+            ?>
+              					<a href="#" class="float-left">1979</a><br>
+					<p>STTS pada mulanya dikenal dengan Institut Teknisi Elektro Surabaya (ITES) yang didirikan pada tanggal 1 Maret 1979. ITES berlokasi di jalan Bali no. 17 Surabaya dan dibawah naungan Yayasan Perguruan Tinggi Teknik Nusantara. Penyelenggaraan perguruan tinggi ini didasarkan atas kesadaran untuk ikut berperan serta dalam memenuhi kebutuhan pendidikan tinggi khususnya di bidang teknik elektro.</p>
+				</li>
+				<li>
+					<a href="#" class="float-left">1980</a><br>
+					<p>Dengan jumlah mahasiswa yang semakin banyak, kampus ITES pindah ke jalan Gubeng Pojok no. 15 Surabaya.</p>
+				</li>
+				<li>
+					<a href="#" class="float-left">1982</a><br>
+					<p>ITES berubah nama menjadi Sekolah Tinggi ElektroTeknik Surabaya (STIELS) dan memperoleh status TERDAFTAR hingga program sarjana lengkap S1 (insinyur). Untuk memenuhi kebutuhan masyarakat akan tenaga ahli bidang komputer dengan masa pendidikan yang cepat, tahun ini juga STIELS menyelenggarakan program Diploma 3 jurusan Manajemen Informatika dan Teknik Komputer.</p>
+				</li>
+				<li>
+					<a href="#" class="float-left">1985</a><br>
+					<p>STIELS berganti nama menjadi Sekolah Tinggi Teknik Surabaya (STTS) dan membuka jurusan baru, yaitu Strata-1 Teknik Informatika dan Komputer. Sejak itu pula kegiatan belajar mengajar secara bertahap dipindahkan ke kampus baru di jalan Ngagel Jaya Tengah no. 73-77 yang dilengkapi dengan gedung laboratorium.</p>
+				</li>
+				<li>
+					<a href="#" class="float-left">1988</a><br>
+					<p>Tim Akreditasi Direktorat Jendral Pendidikan Tinggi Republik Indonesia memutuskan kenaikan status TERDAFTAR menjadi DIAKUI untuk semua program studi yang ada di STTS, yaitu:
+- Strata-1 Teknik Elektro
+- Strata-1 Teknik Informatika dan Komputer
+- Diploma-3 Manajemen Informatika dan Teknik Komputer</p>
+				</li>
+				<li>
+					<a href="#" class="float-left">1992</a><br>
+					<p>STTS membuka jurusan Strata-1 Teknik dan Manajemen Industri, yang membekali mahasiswa dengan sejumlah teknik dan ilmu manajemen di bidang industri. Selain itu program ini juga menekankan penggunaan komputer sebagai unsur pengendalian.</p>
+				</li>
+				<li>
+					<a href="#" class="float-left">1997</a><br>
+					<p>STTS was initially known as Institut Teknisi Elektro Surabaya (ITES), founded on March 1, 1979, located on Jalan Bali 17, Surabaya, under Yayasan Perguruan Tinggi Teknik Nusantara foundation. The establishment of this institution was based on the awareness to participate in supplying the needs of higher education, especially in electrical engineering.</p>
+				</li>
+				</li>
+				<li>
+					<a href="#" class="float-left">2000</a><br>
+					<p>STTS, collaborating with Swinburne University of Technology (SUT) � Melbourne, Australia, established a linked program called Bachelor of Science in Information Technology (BIT) and its further study in Master�s program at SUT.</p>
+				</li>
+				</li>
+				<li>
+					<a href="#" class="float-left">2006</a><br>
+					<p>STTS established Business Information System Department (undergraduate) with a purpose of producing graduates having combined skills in IT and management.</p>
+				</li>
+				</li>
+				<li>
+					<a href="#" class="float-left">2008</a><br>
+					<p>STTS is an IT-based higher institution which can surely contribute in designing. Due to the needs and demands of designers expected from STTS, in 2008 STTS established Visual Communication Design Department, followed by Product Design Department three years after (in 2011).</p>
+				</li>
+				</li>
+				<li>
+					<a href="#" class="float-left">2015</a><br>
+					<p>STTS was awarded accreditation B by National Accreditation Committee for Higher Institutions (BAN-PT) with Decree number 401/SK/BAN-PT/Akred/V/2015. Still in the same year, STTS signed a collaboration with</p>
+				</li>
+				<li>
+					<a href="#" class="float-left">2019</a><br>
+					<p>Pada tanggal 24 Juni 2019, SK Menteri Nomor 481/KPT/ I /2019 tentang Izin perubahan bentuk nama Sekolah Tinggi Teknik Surabaya (STTS) telah resmi berubah menjadi Institut Sains dan Teknologi Terpadu Surabaya (iSTTS).</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+            <?php}
+            else{
+              ?>
+                					<a href="#" class="float-left">1979</a><br>
 					<p>STTS pada mulanya dikenal dengan Institut Teknisi Elektro Surabaya (ITES) yang didirikan pada tanggal 1 Maret 1979. ITES berlokasi di jalan Bali no. 17 Surabaya dan dibawah naungan Yayasan Perguruan Tinggi Teknik Nusantara. Penyelenggaraan perguruan tinggi ini didasarkan atas kesadaran untuk ikut berperan serta dalam memenuhi kebutuhan pendidikan tinggi khususnya di bidang teknik elektro.</p>
 				</li>
 				<li>
@@ -2096,6 +2161,10 @@ $(document).ready(function(){
 			</ul>
 		</div>
 	</div>
+              <?php
+            }
+        ?>
+
 </div>
 
 <!-- <div class="text-muted mt-5 mb-5 text-center small">by : <a class="text-muted" target="_blank" href="http://totoprayogo.com">totoprayogo.com</a></div> -->
