@@ -6,7 +6,7 @@
           if($_SESSION["lang"]=="inggris"){
             $bahasa=2;
           }
-          $agenda=mysqli_query($conn,"SELECT * from kegiatan where judul_$bahasa like '%$kata%' or deskripsi_$bahasa like '%$kata%' order by id desc limit 1");
+          $agenda=mysqli_query($conn,"SELECT * from kegiatan where judul_$bahasa like '%$kata%' or deskripsi_$bahasa like '%$kata%' order by id desc limit 2");
          
          //$dosen=mysqli_query($conn,"SELECT * from dosen where dosen_nama like '%$kata%' or dosen_email like '%$kata%' order by dosen_id desc limit 9");
          
@@ -29,8 +29,9 @@
                             echo "$judul;</a></h3>
                             <p>";
                             $deskripsi=$value["deskripsi_$bahasa"];
-                            echo "$deskripsi</p>
-                            <p><a href='detail.php?jurusan=$value[id]' class='btn btn-primary'>See more</a></p>
+                            $judul=$value["judul_$bahasa"];
+                            echo "$deskripsi;</p>
+                            <p><a href='blog.php?title=$judul' class='btn btn-primary'>See more</a></p>
                         </div>
                     </div>	
                     ";
@@ -40,6 +41,34 @@
                 </div>
             </section>
             ";
+
+            // echo"
+            // <section class='ftco-section'  > 
+            //     <div class='container-fluid px-4' >				
+            //         <div class='row'>
+            // ";
+            // // <p>";
+            // // $ket=$value["jurusan_des_$bahasa"];
+            // // echo "$ket</p>
+            // foreach ($dosen as $key => $value) {
+            //     // $desc=substr($value["agenda_deskripsi"],0,50);
+            //     //<h3>$value[dosen_nama]</h3>
+            //         echo"
+            //         <div class='col-md-3 course ftco-animate'>
+            //             <div class='img' style='background-image: url($value[dosen_gambar]);'></div>
+            //             <div class='text pt-4'>
+            //                 <h3><a href='#'>$value[dosen_nama]</a></h3>
+            //                 <p>$value[dosen_jabatan]</p>
+            //                 <p><a href='teacher.php?title=$value[dosen_nama]' class='btn btn-primary'>See more</a></p>
+            //             </div>
+            //         </div>	
+            //         ";
+            // }	
+            // echo" 
+            //         </div>
+            //     </div>
+            // </section>
+            // ";
 
             
 ?>

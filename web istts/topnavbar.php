@@ -19,7 +19,9 @@
 		require("connect.php");
 		// session_start();
 		// echo "bhs e".$_SESSION['lang'];
-	
+		if(!isset($_SESSION["lang"])){
+			$_SESSION["lang"]="indo";
+		}
 		if(isset($_POST['btnSearch'])){
 			$kata=$_POST["search"];
 			header("location:search.php?kata=$kata");
