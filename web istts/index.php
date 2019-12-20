@@ -16,7 +16,7 @@
 	h2{
 		font-family:times header;
 	}
-</style>
+	</style>
 	
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-</style>
+	
   </head>
   <body>
 
@@ -42,7 +42,9 @@
         include("carrousel.php"); 
         include("desc.php"); 
         include("mission.php"); 
-        include("campus.php");
+        include("campus.php"); 
+        // include("courses.php"); 
+        // include("teachers.php"); 
         include("news.php"); 
         include("testi.php"); 
         include("gallery.php"); 

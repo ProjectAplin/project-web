@@ -19,45 +19,15 @@
   </head>
   <body>
   <style>
- 
+
   </style>
   		<?php
-			include("topnavbar.php");
-			include("title.php");
-            include("connect.php");
-            $kata=$_GET['kata'];
-            $agenda=mysqli_query($conn,"SELECT * from agenda_bahasa where agenda_judul like '%$kata%' or agenda_deskripsi like '%$kata%' order by agenda_id desc limit 9");
-            $dosen=mysqli_query($conn,"SELECT * from dosen where dosen_nama like '%$kata%' or dosen_email like '%$kata%' order by dosen_id desc limit 9");
-
-    
-	  ?>
-
-
-
-
-		<section class="ftco-section"  >
-			<div class="container-fluid px-4" >				
-				<div class="row">
-                    <?php
-                        foreach ($agenda as $key => $value) {
-                            $desc=substr($value["agenda_deskripsi"],0,50);
-                                echo"
-                                <div class='col-md-3 course ftco-animate'>
-                                    <div class='img' style='background-image: url(images/amelia.jpg);'></div>
-                                    <div class='text pt-4'>
-                                        <h3><a href='#'>$value[agenda_judul]</a></h3>
-                                        <p>kucing emang</p>
-                                        <p><a href='detail.php?jurusan=$value[agenda_id]' class='btn btn-primary'>See more</a></p>
-                                    </div>
-                                </div>	
-                                ";
-                        }
-                    ?>
-                   		
-				</div>
-			</div>
-		</section>
-        
+        include("topnavbar.php");
+        include("title.php");
+        include("connect.php");
+        $kata=$_GET['kata'];
+      ?>
+    <div class="tempatajax"></div>
 		<footer class="ftco-footer ftco-bg-dark ftco-section" style="clear:both">
       <div class="container">
         <div class="row mb-5">
@@ -142,8 +112,8 @@
         </div>
       </div>
     </footer>
-    
-  
+
+
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
@@ -164,12 +134,28 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script>
+  
+  </body>
+</html>
+<script>
     // $(document).ready(function () {
     //   $("#courses").addClass("active");
     //   $("#title").html("Our Courses");
     //   $("#title2").html("Courses");
     // });
+    var kata="<?php echo $kata?>";
+    
+    panggilajax();
+    function panggilajax(){
+      $.ajax({
+        method: "post",
+        url: "search_ajax.php",
+        data: {
+          kata:kata
+        },
+        success: function (data) {
+          $(".tempatajax").html(data);
+        }
+      });
+    }
   </script>
-  </body>
-</html>

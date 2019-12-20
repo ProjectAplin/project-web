@@ -22,35 +22,13 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <style>
-    .pic{
-      background-size:100%;
-      background-repeat:no-repeat;
-      background-size:contain;
-      height:200px;
-      position:absolute;
-      width:50%;
-      left:160px;
-    }
-    .tgl{
-      margin-top:-40px;
-    }
-    .judul{
-      text-align:center;
-      font-size:30px;
-      padding-top:50px;
-    }
-  </style>
   <body>
     <?php
       require("connect.php");
       // $_SESSION['lang']="";
       include("topnavbar.php");
       include("title.php");
-      echo"<div style='display:inline-block;'>";
-      echo "<div style='margin-left:90px;margin-top:50px;font-size:60px;margin-bottom:-100px;'>Agenda Kegiatan</div>";
-      echo "<div style='margin-left:910px;font-size:60px;margin-bottom:-100px;'>Detail</div>";
-      echo"</div>";
+      echo "<p style='text-align:center;margin-top:50px;font-size:100px;'>Agenda</p>";
       include("kalender.php");
       $k = new Calendar();
       // $title="";
@@ -91,6 +69,7 @@
       include("news.php");
     ?>
 
+  <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
