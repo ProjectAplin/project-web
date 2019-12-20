@@ -31,6 +31,11 @@
       echo "<p style='text-align:center;margin-top:50px;font-size:100px;'>Agenda</p>";
       include("kalender.php");
       $k = new Calendar();
+      $bahasa=1;
+      
+      if($_SESSION["lang"]=="inggris"){
+        $bahasa=2;
+      }
       // $title="";
       ?>
       
@@ -45,7 +50,7 @@
           require("connect.php");
           $listKegiatan = mysqli_query($conn,"SELECT * FROM kegiatan");
           foreach ($listKegiatan as $kegiatan){
-            if($kegiatan['judul_1']==$title){
+            if($kegiatan["judul_$bahasa"]==$title){
                 $t = $kegiatan['tanggal']; 
                 $tahun = substr($t,0,4);
                 $bulan = substr($t,5,2);
@@ -54,7 +59,7 @@
                 echo "<div class='tgl'>".$tgl." ".$monthName." ".$tahun."</div>";
                 echo"<div class='judul' style='font-size:20px;margin-top:-50px;'>".$title."</div>";
                 echo "<div class='pic' style='background-image: url($kegiatan[foto]);'></div>";
-                echo"<div class='isi' style='font-size:10px; margin:210px 50px;'>".$kegiatan['deskripsi_1']."</div>";
+                echo"<div class='isi' style='font-size:10px; margin:210px 50px;'>".$kegiatan["deskripsi_$bahasa"]."</div>";
             }
           } 
         }else{

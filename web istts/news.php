@@ -9,6 +9,11 @@
 				<div class="row">
           <?php
           require("connect.php");
+          $bahasa=1;
+      
+          if($_SESSION["lang"]=="inggris"){
+            $bahasa=2;
+          }
           $listKegiatan = mysqli_query($conn,"SELECT * FROM kegiatan");
           foreach ($listKegiatan as $kegiatan){
              if($kegiatan['kategori']=="Berita"){
@@ -29,10 +34,15 @@
                         </div>
                       </a>
                       <div class="text bg-white p-4">
-                        <h3 class="heading"><a href="#"><?=$kegiatan['judul_1']?></a></h3>
-                        <p><?=$kegiatan['deskripsi_1']?></p>
+                        <h3 class="heading"><a href="#"><?=$kegiatan["judul_$bahasa"]?></a></h3>
+                        <p><?php
+                        $des=$kegiatan["deskripsi_$bahasa"];
+                        echo $des?></p>
                         <div class="d-flex align-items-center mt-4">
-                        <p class="mb-0"><a href="agenda.php?title=<?=$kegiatan['judul_1']?>" class="btn btn-primary">Selengkapnya <span class="ion-ios-arrow-round-forward"></span></a></p>
+                        
+                        <p class="mb-0"><a href="blog.php?title=<?php
+                          $judul=$kegiatan["judul_$bahasa"];
+                        echo $judul?>" class="btn btn-primary">Selengkapnya <span class="ion-ios-arrow-round-forward"></span></a></p>
                         <p class="ml-auto mb-0">
                          </p>
                       </div>
