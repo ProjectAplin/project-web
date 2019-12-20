@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="css/ionicons.min.css">
     
-    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/flaticon.css">   
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
@@ -27,9 +27,43 @@
         require("connect.php");
         include("topnavbar.php");
         include("title.php");
+
       ?>
-   
-		<section class="ftco-section ftco-no-pt ftc-no-pb">
+      <?php
+    require("connect.php");
+		// session_start();
+    if($_SESSION['lang']=="inggris"){
+      ?>
+      <section class="ftco-section ftco-no-pt ftc-no-pb">
+			<div class="container">
+				<div class="row d-flex">
+					<!-- <div class="col-md-5 order-md-last wrap-about wrap-about d-flex align-items-stretch"> -->
+						<!-- <div class="img" style="background-image: url(images/about.jpg); border"></div> -->
+            <div class="col-md-5 wrap-about py-5 pr-md-4 ftco-animate">
+            <h2 class="mb-4">Vision</h2>
+						<p>In year 2022, STTS shall be a higher institution in science, technology, and design which can compete at Southeast Asia level, emphasizing quality, innovation, and Indonesian values</p>
+            <h2 class="mb-4">Mision</h2>
+            <ul>
+						<li>To provide the best education and teaching material in science, technology, and design, with some Indonesian colors therein, referring to various international standards in accordance with the situation and condition of the demand and development in social, economic, and cultural aspects of Southeast Asian community.</li>
+              <li>To conduct reasearch with international standards in science, technology, and design, in accordance with the demand and development in social, economic, and cultural aspects of Southeast Asian community, using Indonesian values as part of the research</li>
+              <li>To provide various innovative and superior solutions based on science, technology, and design for various social, economic, and cultural problems, referring to various international standards, especially in dealing with ASEAN economic community (AEC)</li>
+            </ul>
+					</div>
+					<div class="col-md-5 wrap-about py-5 pr-md-4 ftco-animate">
+          	<h2 style="margin-left:100px;">Berdiri Sejak 1979</h2>
+            <?php
+              include("timeline.php");
+            ?>
+		  
+					</div>
+				</div>
+			</div>
+		</section>
+      <?php
+    }
+    else{
+      ?>
+      <section class="ftco-section ftco-no-pt ftc-no-pb">
 			<div class="container">
 				<div class="row d-flex">
 					<!-- <div class="col-md-5 order-md-last wrap-about wrap-about d-flex align-items-stretch"> -->
@@ -58,7 +92,14 @@
 				</div>
 			</div>
 		</section>
-		<?php
+
+    <?php
+    }
+  ?>
+
+
+   
+				<?php
       include("campus.php");
       include("testi.php");
       include("gallery.php");

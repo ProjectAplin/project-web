@@ -73,8 +73,9 @@
       $("#indonesia , #inggris").click(function(){
         $.post("bahasa.php",{bahasa_id:$(this).attr("id")},function(result){
           $(".topnavbar").html(result);
+        });
+        $.post("bahasa2.php",{bahasa_id:$(this).attr("id")},function(result){
           $(".desc").html(result);
-          
         });
       });
       
