@@ -17,7 +17,7 @@
 	  
 	<?php
 		require("connect.php");
-		session_start();
+		// session_start();
 		// echo "bhs e".$_SESSION['lang'];
 	
 		if(isset($_POST['btnSearch'])){
@@ -79,7 +79,7 @@
 					<ul class="navbar-nav mr-auto">
 					<li class="nav-item" id="index"><a href="index.php" class="nav-link pl-0">Home</a></li>
 					<li class="nav-item" id="about"><a href="about2.php" class="nav-link">About</a></li>
-					<li class="nav-item" id="courses"><a href="courses2.php" class="nav-link">Courses</a></li>
+					<li class="nav-item" id="courses"><a href="courses.php" class="nav-link">Courses</a></li>
 					<li class="nav-item" id="teacher"><a href="teacher.php" class="nav-link">Staff</a></li>
 					<li class="nav-item" id="agenda"><a href="blog.php" class="nav-link">Event & Agenda</a></li>
 					<li class="nav-item" id="contact"><a href="contact.php" class="nav-link">Student Activity</a></li>
@@ -114,10 +114,6 @@
 					<?php
 				}
 			?>
-	        	
-
-
-	        
 	    </div>
 	  </nav>
 	  <script src="jquery-3.3.1.min.js"></script>

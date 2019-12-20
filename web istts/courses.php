@@ -35,15 +35,15 @@
   }
   </style>
   		<?php
-      require("connect.php");
-      // $_SESSION['lang']="";
+      // require("connect.php");
+      session_start();
+      $_SESSION['aktif']=2;
 			include("topnavbar.php");
 			include("title.php");
 			include("connect.php");
 			//$jurusan=mysqli_query($conn,"SELECT * from jurusan_bahasa where jurusan_bahasa_id<>2");
       $jurusan=mysqli_query($conn,"SELECT * from jurusan_bahasa");
       $bahasa=1;
-      
       if($_SESSION["lang"]=="inggris"){
         $bahasa=2;
       }
@@ -202,8 +202,8 @@
   <script>
     $(document).ready(function () {
       $("#courses").addClass("active");
-      $("#title").html("Our Courses");
-      $("#title2").html("Courses");
+      // $("#title").html("Our Courses");
+      // $("#title2").html("Courses");
     });
   </script>
   </body>

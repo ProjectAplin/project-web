@@ -43,8 +43,8 @@
   </style>
   <body>
     <?php
-      session_start();
-      $_SESSION['aktif'] = 4;
+     session_start();
+     $_SESSION['aktif'] = 4;
       require("connect.php");
       // $_SESSION['lang']="";
       include("topnavbar.php");
@@ -57,6 +57,8 @@
       $k = new Calendar();
       // $title="";
       ?>
+      
+
     <div class="row" style="display:inline;">
       <div class="row d-flex ftco-animate" style="align:center;margin-top:-10px; width:50%;"><?php echo $k->show();?></div>
       <div class="col-md-5 wrap-about py-5 pr-md-4 ftco-animate" style="top:-570px;left:700px;border:1px solid;height:450px;">
@@ -91,7 +93,6 @@
       include("news.php");
     ?>
 
-  <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 

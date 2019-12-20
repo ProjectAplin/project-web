@@ -23,25 +23,109 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <style>
-
+    .kotak{
+      margin:50px auto;
+      width:80%;
+      height:500px;
+      /* border:1px solid black; */
+      background-color:#C46210;
+      -webkit-box-shadow: 5px 5px 15px 5px #261C0D; 
+      box-shadow: 5px 5px 15px 5px #261C0D;
+      /* -webkit-box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(38,28,13,0); 
+      box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(38,28,13,0); */
+    }
+    .judul{
+      text-align:center;
+      font-size:50px;
+      font-weight:bold;
+      color:white;
+    }
+    .desc{
+      padding:30px;
+      color:white;
+    }
+    .pic{
+      background-size:50%;
+      background-repeat:no-repeat;
+      height:50%;
+      margin-left:380px;
+    }
   </style>
   <body>
     <?php
+        session_start();
+        $_SESSION['aktif'] = 5;
         require("connect.php");
         // $_SESSION['lang']="";
         include("topnavbar.php");
         include("title.php");
     ?> 
-    <div class="kotak">
+<section class="home-slider owl-carousel" style="margin-top:100px;">
+    <div class="slider-item" style="background-image:url(images/bem.jpg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
+          <div class="col-md-6 ftco-animate">
+            <h1 class="mb-4">Organisasi</h1>
+            <p>Di ISTTS, kami percaya pengalaman dalam berorganisasi sangat berperan dalam pembentukan karakter dan jiwa kepemimpinan yang kuat.</p>
+            <p><a href="#organisasi" class="btn btn-primary px-4 py-3 mt-3">Lihat selengkapnya</a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+  </section>
+  <section class="home-slider owl-carousel" style="margin-top:100px;">
+    <div class="slider-item" style="background-image:url(images/ukm.jpg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
+          <div class="col-md-6 ftco-animate">
+            <h1 class="mb-4">Unit Kegiatan Mahasiswa</h1>
+            <p>UKM adalah organisasi bentukan mahasiswa yang berhubungan dengan hobi mahasiswa. Dengan demikian, setiap mahasiswa yang memiliki hobi yang sama dapat bergabung dalam UKM-UKM yang sesuai. Sebagian besar kegiatan seni maupun pertunjukkan di lingkungan kampus diisi oleh UKM-UKM ini.</p>
+            <p><a href="#ukm" class="btn btn-primary px-4 py-3 mt-3">Lihat selengkapnya</a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+  </section>
+  <section class="home-slider owl-carousel" style="margin-top:100px;">
+    <div class="slider-item" style="background-image:url(images/UKK.jpg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
+          <div class="col-md-6 ftco-animate">
+            <h1 class="mb-4">Unit Kegiatan Kerohanian</h1>
+            <p>UKK adalah organisasi bentukan mahasiswa lainnya lagi yang berhubungan dengan agama yang dianut mahasiswa. Organisasi ini sepenuhnya didukung oleh kampus, mengingat iSTTS merupakan salah satu kampus swasta yang menghargai kebebasan beragama.</p>
+            <p><a href="#ukk" class="btn btn-primary px-4 py-3 mt-3">Lihat selengkapnya</a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+  </section>
+  <?php
+    require("connect.php");
+    $listOrg = mysqli_query($conn,"select * from org_bahasa");
+    $ctr = 0;
+    foreach ($listOrg as $org) {
+      $ctr++;
+      if($ctr==1){
+        echo"<div class='kotak' id='organisasi'>";
+      }else if($ctr==7){
+        echo"<div class='kotak' id='ukm'>";
+      }else if($ctr==23){
+        echo"<div class='kotak' id='ukk'>";
+      }else{
+        echo"<div class='kotak'>";
+      }
+      echo "<div class='judul'>".$org['org_nama']."</div>";
+      echo "<div class='pic' style='background-image:url(images/cover.jpg);'></div>";
+      echo "<div class='desc'>".$org['org_deskripsi']."</div>";
+      echo"</div>";
+    }
+  ?>
+
+    
   
-    </div>
-    <div class="kotak">
-
-    </div>
-    <div class="kotak">
-
-    </div>
-
 
 
 		
@@ -154,8 +238,8 @@
   <script>
     $(document).ready(function () {
       $("#contact").addClass("active");
-      $("#title").html("Activity");
-      $("#title2").html("Student Activity");
+      // $("#title").html("Activity");
+      // $("#title2").html("Student Activity");
     });
   </script>  
     

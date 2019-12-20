@@ -24,7 +24,8 @@
   </head>
   <body>
 	  <?php
-    require("connect.php");
+    session_start();
+    $_SESSION['aktif']=3;
     // $_SESSION['lang']="";
     include("topnavbar.php");
 		include("title.php");
@@ -174,8 +175,8 @@
   <script>
     $(document).ready(function () {
       $("#teacher").addClass("active");
-      $("#title").html("Certified Teacher");
-      $("#title2").html("Teacher");
+      // $("#title").html("Certified Teacher");
+      // $("#title2").html("Teacher");
     });
 	function muncul(id_dosen){
 		$.ajax({
